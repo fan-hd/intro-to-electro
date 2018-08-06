@@ -1,14 +1,66 @@
 \chapter{Vector Analysis}
+
 \section{Vector Algebra}
-\subsection{Vector Operations}
-\begin{prob}
-    Using the definitions in Eqs.~1.~1 and 1.4, and appropriate diagrams, show that the dot product and cross product are distributive,
+    \subsection{Vector Operations}
+    \subsection{Vector Algebra: Component From}
+    \subsection{Triple Products}
+    \subsection{Position, Displacement, and Separation Vectors}
+    \subsection{How Vectors Transform}
 
-    a) when the three vectors are coplanar;
+\section{Differential Calculus}
+    \subsection{``Ordinary'' Derivatives}
+    \subsection{Gradient}
+    \subsection{The Del Operator}
+    \subsection{The Divergence}
+        \begin{prob}[1.17]
+            In two dimensions, 
+            show that the divergence transforms as a scalar 
+            under rotations.
+        \end{prob}
 
-    b) in the general case.
-\end{prob}
+        \begin{sol}[1.17]
+        Since
+            \begin{equation}
+                \begin{pmatrix}
+                    \overline{v}_y \\
+                    \overline{v}_z \\
+                \end{pmatrix}
+        = \begin{pmatrix}
+            \cos \theta & \sin \theta\\
+            -\sin\theta & \cos \theta\\
+        \end{pmatrix}
+        \begin{pmatrix}
+            v_y \\ v_z
+        \end{pmatrix}
+    \end{equation}
 
-\begin{prob}
-    Is the cross product associative?
-\end{prob}
+    and
+    \begin{equation}
+        \begin{pmatrix}
+            \overline{y} \\ \overline{z}
+        \end{pmatrix}
+        = \begin{pmatrix}
+            \cos \theta & \sin \theta \\
+            -\sin \theta & \cos \theta
+        \end{pmatrix}
+        \begin{pmatrix}
+            y \\ z
+        \end{pmatrix},
+    \end {equation}
+
+    we have
+        \begin{equation}
+            \begin{aligned}
+                &\parfpx{\overline{v}_x}{\overline{x}} + \parfpx{\overline{v}_y}{\overline{y}} + \parfpx{\overline{v}_z}{\overline{z}} \\
+                =&\parfpx{v_x}{x} + \parfpx{\overline{v}_y}{y}\parfpx{y}{\overline{y}} + \parfpx{\overline{v}_y}{z}\parfpx{z}{\overline{y}}
+                    + \parfpx{\overline{v}_z}{y}\parfpx{y}{\overline{z}} + \parfpx{\overline{v}_z}{z}\parfpx{z}{\overline{z}} \\
+                =&\parfpx{v_x}{x} + \parfpx{\overline{v}_y}{y}\cos \theta 
+                    + \parfpx{\overline{v}_y}{z}\sin \theta - \parfpx{\overline{v}_z}{y} \sin \theta + \parfpx{\overline{v}_z}{z} \cos \theta \\
+                =&\parfpx{v_x}{x}+\parfpx{\left(\overline{v}_y\cos\theta - \overline{v}_z\sin\theta\right)}{y} + \parfpx{\left(\overline{v}_y\sin\theta + \overline{v}_z\cos\theta\right)}{z} \\
+                =&\parfpx{v_x}{x}+\parfpx{v_y}{y} + \parfpx{v_z}{z}.
+            \end{aligned}
+        \end{equation}
+\end{sol}
+
+    \subsection{The Curl}
+
