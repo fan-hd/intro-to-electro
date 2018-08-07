@@ -62,5 +62,23 @@
         \end{equation}
 \end{sol}
 
-\subsection{The Curl}
+            \subsection{The Curl}
+            \subsection{Product Rules}
+            \begin{prob}[1.21]
+                Prove product rules (i), (iv), and (v).
+            \end{prob}
+            \begin{sol}[1.21] ~\\
+                \noindent (i):
+                \begin{equation}
+                    \begin{aligned}
+                        \nabla(fg)&=(\parfpx{}{x}\mathbf{\hat{x}} + \parfpx{}{y}\mathbf{\hat{y}} + \parfpx{}{z}\mathbf{\hat{z}})(fg) \\
+                            &=\parfpx{(fg)}{x} + \parfpx{(fg)}{y} + \parfpx{(fg)}{z} \\
+                            &=f\parfpx{}{x}g\mathbf{\hat{x}} + g\parfpx{}{x}f\mathbf{\hat{x}} + f\parfpx{}{y}g\mathbf{\hat{y}} 
+                                + g\parfpx{}{y}f\mathbf{\hat{y}} + f\parfpx{}{z}g\mathbf{\hat{z}} + g\parfpx{}{z}f\mathbf{\hat{z}} \\
+                            &=f(\parfpx{}{x}g\mathbf{\hat{x}} + \parfpx{}{y}g\mathbf{\hat{y}} + \parfpx{}{z}g\mathbf{\hat{z}}) 
+                                + g(\parfpx{}{x}f\mathbf{\hat{x}} + \parfpx{}{y}f\mathbf{\hat{y}} + \parfpx{}{z}f\mathbf{\hat{z}}) \\
+                            &=f \nabla g + g \nabla f.
+                    \end{aligned}
+                \end{equation}
+            \end{sol}
 
