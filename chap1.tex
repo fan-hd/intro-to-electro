@@ -12,6 +12,39 @@
     \subsection{Gradient}
     \subsection{The Del Operator}
     \subsection{The Divergence}
+        \begin{prob}[1.15]
+            Calculate the divergence of the following vector fuctions:
+
+            (a) $\mathbf{v_a}=x^2\mathbf{\hat{x}} + 3xz^2\mathbf{\hat{y}} - 2xz\mathbf{\hat{z}}$.
+
+            (b) $\mathbf{v_b} = xy\mathbf{\hat{x}} + 2yz\mathbf{\hat{y}} + 3zx \mathbf{\hat{z}}$.
+
+            (c) $\mathbf{v_c} = y^2\mathbf{\hat{x}} + (2xy + z^2)\mathbf{\hat{y}} + 2yz\mathbf{\hat{z}}$.
+        \end{prob}
+
+        \begin{sol}[1.15]~\\
+            (a)
+            \begin{equation}
+                \begin{aligned}
+                    \nabla\cdot\mathbf{v_a} &=2x+0-2x \\
+                    &= 0.
+                \end{aligned}
+            \end{equation}
+            \noindent (b)
+            \begin{equation}
+                \begin{aligned}
+                    \nabla\cdot\mathbf{v_b} &= y + 2z + 3x \\
+                    &=3x + y + 2z.
+                \end{aligned}
+            \end{equation}
+            \noindent (c)
+            \begin{equation}
+                \begin{aligned}
+                    \nabla\cdot\mathbf{v_c} &= 0 + 2x + 2y \\
+                    &=2x + 2y.
+                \end{aligned}
+            \end{equation}
+        \end{sol}
         \begin{prob}[1.17]
             In two dimensions, 
             show that the divergence transforms as a scalar 
@@ -164,5 +197,86 @@
                         &=0.
                     \end{aligned}
                 \end{equation}
+
+                \noindent (c) Since
+                \begin{equation}
+                    \begin{aligned}
+                        \parfpx{\mathbf{v_b}}{x} &=y\mathbf{\hat{x}} + 3z\mathbf{\hat{z}}, \\
+                        \parfpx{\mathbf{v_b}}{y} &=x\mathbf{\hat{x}} + 2z\mathbf{\hat{y}}, \\
+                        \parfpx{\mathbf{v_b}}{z} &=2y\mathbf{\hat{y}} + 3x \mathbf{\hat{z}},
+                    \end{aligned}
+                \end{equation}
+                \begin{equation}
+                    \begin{aligned}
+                            (\mathbf{v_a\cdot\nabla})\mathbf{v_b} &= x^2(y\mathbf{\hat{x}} + 3z\mathbf{\hat{z}})
+                                +3xz^2(x\mathbf{\hat{x}} + 2z\mathbf{\hat{y}})
+                                -2xz(2y\mathbf{\hat{y}} + 3x\mathbf{\hat{z}}) \\
+                            &=(x^2y + 3x^2z^2)\mathbf{\hat{x}} + (6xz^3 - 4xyz)\mathbf{\hat{y}} -3x^2z\mathbf{\hat{z}}.
+                    \end{aligned}
+                \end{equation}
             \end{sol}
 
+            \begin{prob}[1.23](For masochists only.) Prove products rules (ii) and (vi). Refer to Prob.~1.22 for the definition of $(\mathbf{A}\cdot\nabla)\mathbf{B}$.
+            \end{prob}
+
+            \begin{prob}[1.24] Derive the three quotient rules.
+            \end{prob}
+
+            \begin{sol}[1.24]
+                \begin{equation}
+                    \begin{aligned}
+                        \nabla\left(\frac{f}{g}\right)&=f\nabla\left(\frac{1}{g}\right) + \frac{1}{g}\nabla f \\
+                        &=f\cdot\left(-\frac{\nabla g}{g^2}\right) + \frac{\nabla f}{g} \\
+                        &=\frac{g\nabla f - f\nabla g}{g^2}.
+                    \end{aligned}
+                \end{equation}
+                \begin{equation}
+                    \begin{aligned}
+                        \nabla\left(\frac{\mathbf{A}}{g}\right) &= \frac{\nabla \cdot A}{g} + \mathbf{A}\cdot \nabla \left(\frac{1}{g}\right) \\
+                        &=\frac{g\left(\nabla\cdot\mathbf{A}\right)-\mathbf{A}\cdot\nabla g}{g^2}.
+                    \end{aligned}
+                \end{equation}~\\
+                \begin{equation}
+                    \begin{aligned}
+                        \nabla\times\left(\frac{\mathbf{A}}{g}\right) &= \frac{1}{g} \nabla\times\mathbf{A} - \mathbf{A} \times \nabla\left(\frac{1}{g}\right) \\
+                        &=\frac{g(\nabla\times\mathbf{A}) + \mathbf{A}\times(\nabla g)}{g^2}.
+                    \end{aligned}
+                \end{equation}
+            \end{sol}
+    \subsection{Second Derivatives}
+        \begin{prob}[1.26] Calculate the Laplacian of the following functions:
+
+            \noindent (a) $T_a = x^2 + 2xy + 3z + 4$.
+            
+            \noindent (b) $T_b = \sin x \sin y \sin z$.
+
+            \noindent (c) $e^{-5x} \sin 4y \cos 3z$.
+
+            \noindent (d) $\mathbf{v} = x^2\mathbf{\hat{x}} + 3xz^2\mathbf{\hat{y}} - 2xz\mathbf{\hat{z}}$.
+        \end{prob}
+
+        \begin{sol}[1.26]~\\
+            (a) $\nabla^2 T_a=2$.
+
+            \noindent (b) $\nabla^2 T_b = -3\sin x \sin y\sin z$.
+
+            \noindent (c) $\nabla^2 T_c = 0$.
+
+            \noindent (d) $\nabla^2 \mathbf{v}=2\mathbf{\hat{x}} + 6x\mathbf{\hat{y}}$.
+        \end{sol}
+
+        \begin{prob}[1.27] Prove that the divergence of a curl is always zero. \textit{Check} it for function $\mathbf{v_a}$ in Prob.~1.15.
+        \end{prob}
+
+        \begin{sol}[1.27]
+            \begin{equation}
+                \begin{aligned}
+                    \nabla\cdot(\nabla\times\mathbf{v}) &= \nabla\cdot\left(\left(\parfpx{v_z}{y} - \parfpx{v_y}{z}\right)\mathbf{\hat{x}} + \left(\parfpx{v_x}{z} - \parfpx{v_z}{x}\right)\mathbf{\hat{y}} + \left(\parfpx{v_y}{x} - \parfpx{v_x}{y}\right)\right) \\
+                    &=\parfpx{}{x}\parfpx{v_z}{y} - \parfpx{}{x}\parfpx{v_y}{z} + \parfpx{}{y}\parfpx{v_x}{z} - \parfpx{}{y}\parfpx{v_z}{x}\\ 
+                    &\quad + \parfpx{}{z}\parfpx{v_y}{x} - \parfpx{}{z}\parfpx{v_x}{y} \\
+                    &=\left(\frac{\partial^2v_z}{\partial x\partial y} -\frac{\partial^2v_z}{\partial y\partial x}\right) + \left(\frac{\partial^2v_x}{\partial y\partial z} - \frac{\partial^2v_x}{\partial z\partial y}\right) \\
+                    &\quad + \left(\frac\partial{v_y}{\partial z\partial x} - \frac{\partial^2v_y}{\partial x\partial z}\right)\\
+                    &=0.
+                \end{aligned}
+            \end{equation}
+        \end{sol}
