@@ -271,7 +271,7 @@
         \begin{sol}[1.27]
             \begin{equation}
                 \begin{aligned}
-                    \nabla\cdot(\nabla\times\mathbf{v}) &= \nabla\cdot\left(\left(\parfpx{v_z}{y} - \parfpx{v_y}{z}\right)\mathbf{\hat{x}} + \left(\parfpx{v_x}{z} - \parfpx{v_z}{x}\right)\mathbf{\hat{y}} + \left(\parfpx{v_y}{x} - \parfpx{v_x}{y}\right)\right) \\
+                    \nabla\cdot(\nabla\times\mathbf{v}) &= \nabla\cdot\left(\left(\parfpx{v_z}{y} - \parfpx{v_y}{z}\right)\mathbf{\hat{x}} + \left(\parfpx{v_x}{z} - \parfpx{v_z}{x}\right)\mathbf{\hat{y}} + \left(\parfpx{v_y}{x} - \parfpx{v_x}{y}\right)\mathbf{\hat{z}}\right) \\
                     &=\parfpx{}{x}\parfpx{v_z}{y} - \parfpx{}{x}\parfpx{v_y}{z} + \parfpx{}{y}\parfpx{v_x}{z} - \parfpx{}{y}\parfpx{v_z}{x}\\ 
                     &\quad + \parfpx{}{z}\parfpx{v_y}{x} - \parfpx{}{z}\parfpx{v_x}{y} \\
                     &=\left(\frac{\partial^2v_z}{\partial x\partial y} -\frac{\partial^2v_z}{\partial y\partial x}\right) + \left(\frac{\partial^2v_x}{\partial y\partial z} - \frac{\partial^2v_x}{\partial z\partial y}\right) \\
@@ -280,3 +280,112 @@
                 \end{aligned}
             \end{equation}
         \end{sol}
+
+        \begin{prob}[1.28]Prove that the curl of a gradient is always zero. \textit{Check} it for function (b) in Prob.~1.11.
+        \end{prob}
+
+        \begin{sol}[1.28]
+            \begin{equation}
+                \begin{aligned}
+                    \nabla\times(\nabla f) &= \nabla\times\left(\parfpx{f}{x}\mathbf{\hat{x}}+\parfpx{f}{y}\mathbf{\hat{y}} + \parfpx{f}{z}\mathbf{\hat{z}}\right) \\
+                    &=\left(\frac{\partial^2f}{\partial y\partial z} - \frac{\partial^2 f}{\partial z \partial y}\right)\mathbf{\hat{x}} + \left(\frac{\partial^2f}{\partial z \partial x}- \frac{\partial^2f}{\partial x \partial z}\right)\mathbf{\hat{y}} \\
+                    &\quad + \left(\frac{\partial^2f}{\partial x \partial y} - \frac{\partial^2 f}{\partial y \partial x}\right)\mathbf{\hat{z}} \\
+                    &=0.
+                \end{aligned}
+            \end{equation}
+        \end{sol}
+
+\section{INTEGRAL CALCULUS}
+
+\subsection{Line, Surface, and Volume Integrals}
+\begin{prob}[1.29] Calculate the line integral of the function $\mathbf{v}=x^2\mathbf{\hat{x}} + 2yz\mathbf{\hat{y}} + y^2\mathbf{\hat{z}}$ from the origin to the point (1, 1, 1) by three different routes:
+
+    \noindent (a) (0, 0, 0) $\rightarrow$(1, 0, 0) $\rightarrow$(1, 1, 0) $\rightarrow$(1, 1, 1).
+
+    \noindent (b) (0, 0, 0) $\rightarrow$(0, 0, 1) $\rightarrow$(0, 1, 1)$\rightarrow$(1, 1, 1).
+
+    \noindent (c) The direct straight line.
+
+    \noindent (d) What is the line integral around the closed loop that goes \textit{out} along path (a) and \textit{back} along path (b)?
+\end{prob}
+
+\begin{sol}[1.29]~\\
+    \noindent (a) $d\mathbf{l} = dx\mathbf{\hat{x}} + dy\mathbf{\hat{y}} + dz\mathbf{\hat{z}}$.
+
+    (i) $d\mathbf{l} = dx \mathbf{\hat{x}}$,$y=0$,$z=0$,so
+    \begin{equation}
+        \int \mathbf{v}\cdot d\mathbf{l} = \int^1_0 x^2 dx = \frac{1}{3}.
+    \end{equation}
+
+    (ii) $d\mathbf{l} = dy \mathbf{\hat{y}}$,$x=1$,$z=0$, so
+    \begin{equation}
+        \int \mathbf{v}\cdot d\mathbf{l} = \int_0^10 fy = 0.
+    \end{equation}
+
+    (iii) $d\mathbf{l} = dz\mathbf{\hat{z}}$,$x=1$,$y=1$, so
+    \begin{equation}
+        \int \mathbf{v}\cdot d\mathbf{l} = \int_0^11dz = 1.
+    \end{equation}
+
+    Then,
+    \begin{equation}
+        \int_{L_a} \mathbf{v}\cdot d\mathbf{l} = \frac{1}{3} + 0 + 1 = \frac{4}{3}.
+    \end{equation}
+
+    \noindent (b) Similarly,
+
+    (i) $d\mathbf{l} = dz \mathbf{\hat{z}}$, $x = 0$, $y = 0$, so
+    \begin{equation}
+        \int \mathbf{v} \cdot\mathbf{l} = \int_0^1 0dz = 0.
+    \end{equation}
+
+    (ii) $d\mathbf{l} = dy\mathbf{\hat{y}}$, $x = 0$, $z = 1$, so
+    \begin{equation}
+        \int \mathbf{v} \cdot\mathbf{l} = \int_0^1 2ydy = 1.
+    \end{equation}
+
+    (iii) $d\mathbf{l} = dx\mathbf{\hat{x}}$, $y = z = 1$, so
+    \begin{equation}
+        \int\mathbf{v}\cdot\mathbf{l} = \int_0^1x^2dx = \frac{1}{3}.
+    \end{equation}
+
+    Thus,
+    \begin{equation}
+        \int_{L_b}\mathbf{v}\cdot\mathbf{l} = 0 + 1 + \frac{1}{3} = \frac{4}{3}.
+    \end{equation}
+
+    \noindent (c) Since $x = y = z$ along the direct straight line, we have $d\mathbf{l} = dx\mathbf{\hat{x}} + dy\mathbf{\hat{y}} + dz\mathbf{\hat{z}} = dx(\mathbf{\hat{x}} + \mathbf{\hat{y}} + \mathbf{\hat{z}})$. Thus,
+    \begin{equation}
+        \int_L \mathbf{v}\cdot\mathbf{l} = \int_0^14x^2dx = \frac{4}{3}.
+    \end{equation}
+
+    \noindent (d)
+    \begin{equation}
+        \oint\mathbf{v}\cdot\mathbf{l} = \int_{La}\mathbf{v}\cdot\mathbf{l} - \int_{L_b}\mathbf{v}\cdot\mathbf{l} = 0.
+    \end{equation}
+\end{sol}
+
+\begin{prob}[1.30] Calculate the surface integral of the function in Ex.~1.7, over the \textit{bottom} of the box. For consistency, let ``upward'' be the positive direction. Does the surface integral depend only on the boundary line for this function? What is the total flux over the \textit{closed} surface of the box ( \textit{including} the bottom)?[ \textit{Note}: For the \textit{closed} surface, the positive direction is ``outward,'' and hence ``down,'' for the bottom face.]
+\end{prob}
+
+\begin{sol}[1.30] For the bottom side, $z = 0$, $d\mathbf{a} = dxdy\mathbf{\hat{z}}$, $\mathbf{v}\cdot\mathbf{a} = -3ydxdy$, so
+    \begin{equation}
+        \int\mathbf{v}\cdot\mathbf{a} = -3\int_0^2dx\int_0^2ydy = -12.
+    \end{equation}
+
+    Thus the surface integral of the function over the bottom of the box is -12, and the surface integral doesn't depend only on the boundary line for this function.
+
+    The total flux over the closed surface of the box is
+    \begin{equation}
+        \oiint_S \mathbf{v}\cdot\mathbf{a} = 20 + 12 = 32.
+    \end{equation}
+\end{sol}
+
+\begin{prob}[1.31] Calculate the volume integral of the function $T = z^2$ over the terahedron with corners at (0,0,0), (1,0,0), (0,1,0), and (0,0,1).
+\end{prob}
+
+\begin{sol}[1.31]
+    \begin{equation}
+        \iiint_V T dx dy dz = \iiint_V z^2 dx dy dz = \int_0^1\frac{(1-z)^2}{2}z^2dz = \frac{1}{6} - \frac{1}{4} + \frac{1}{10} = \frac{1}{60}.
+    \end{equation}
+\end{sol}
