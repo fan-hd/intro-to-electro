@@ -250,7 +250,7 @@
             
             \noindent (b) $T_b = \sin x \sin y \sin z$.
 
-            \noindent (c) $e^{-5x} \sin 4y \cos 3z$.
+            \noindent (c) $T_c = e^{-5x} \sin 4y \cos 3z$.
 
             \noindent (d) $\mathbf{v} = x^2\mathbf{\hat{x}} + 3xz^2\mathbf{\hat{y}} - 2xz\mathbf{\hat{z}}$.
         \end{prob}
@@ -381,7 +381,7 @@
     \end{equation}
 \end{sol}
 
-\begin{prob}[1.31] Calculate the volume integral of the function $T = z^2$ over the terahedron with corners at (0,0,0), (1,0,0), (0,1,0), and (0,0,1).
+\begin{prob}[1.31] Calculate the volume integral of the function $T = z^2$ over the tetrahedron with corners at (0,0,0), (1,0,0), (0,1,0), and (0,0,1).
 \end{prob}
 
 \begin{sol}[1.31]
@@ -389,3 +389,90 @@
         \iiint_V T dx dy dz = \iiint_V z^2 dx dy dz = \int_0^1\frac{(1-z)^2}{2}z^2dz = \frac{1}{6} - \frac{1}{4} + \frac{1}{10} = \frac{1}{60}.
     \end{equation}
 \end{sol}
+
+\subsection{The Fundamental Theorem of Calculus}
+\subsection{The Fundamental Theorem for Gradients}
+
+\begin{equation}
+    \int_\mathbf{a}^\mathbf{b} (\nabla T)\cdot d\mathbf{l} = T(\mathbf{b}) - T(\mathbf{a}).
+\end{equation}
+\begin{prob}[1.32]
+    Check the fundamental theorem for gradients, using $T = x^2 + 4xy + 2yz^3$, the points $\mathbf{a} = (0,0,0)$, $\mathbf{b}=(1,1,1)$, and the three paths in Fig.~1.28:
+
+    \noindent (a) (0,0,0) $\rightarrow$(1,0,0)$\rightarrow$(1,1,0)$\rightarrow$(1,1,1);
+
+    \noindent (b) (0,0,0)$\rightarrow$(0,0,1)$\rightarrow$(0,1,1)$\rightarrow$(1,1,1);
+
+    \noindent (c) the parabolic path $z = x^2$; $y = x$.
+\end{prob}
+
+\begin{sol}[1.32]
+    \begin{equation}
+        \nabla T = (2x + 4y)\mathbf{\hat{x}} + (4x + 2z^3)\mathbf{\hat{y}} + 6yz^2\mathbf{\hat{z}}.
+    \end{equation}
+
+    \noindent (a) 
+    \begin{equation}
+        \begin{aligned}
+            \int_a \nabla T \cdot d\mathbf{l} &= \int_0^12xdx + \int_0^14dy + \int_0^16z^2 dz \\
+            &=1 + 4 + 2 \\
+            &=7.
+        \end{aligned}
+    \end{equation}
+
+    \noindent (b)
+    \begin{equation}
+        \begin{aligned}
+            \int_b\nabla T\cdot d\mathbf{l} &= \int_0^1 0 dz + \int_0^12dy + \int_0^1(2x + 4)dz \\
+            &=0 + 2 + 1 + 4 \\
+            &=7.
+        \end{aligned}
+    \end{equation}
+
+    \noindent (c) $d\mathbf{l} = dx\mathbf{\hat{x}} + dy\mathbf{\hat{y}} + dz\mathbf{\hat{z}} = dx (\mathbf{\hat{x}} + \mathbf{\hat{y}} + 2x\mathbf{\hat{z}})$.
+
+    \begin{equation}
+        \begin{aligned}
+            \int_c\nabla T\cdot d\mathbf{l} &= \int_0^1(2x + 4x + 4x + 2x^6 + 12x^6)dx \\
+                &=1 + 2 + 2 + 2 \\
+                &=7.
+        \end{aligned}
+    \end{equation}
+\end{sol}
+
+\subsection{The Fundamental Theorem for Divergences}
+
+\begin{equation}
+    \underset{V}{\int}(\nabla\cdot\mathbf{v})d\tau = \underset{S}\oint\mathbf{v}\cdot d\mathbf{a}.
+\end{equation}
+
+\begin{prob}[1.33] Test the divergence theorem for the function
+    $\mathbf{v} = (xy)\mathbf{\hat{x}} + (2yz)\mathbf{\hat{y}} + (3zx)\mathbf{\hat{z}}$. 
+    Take as your volume the cube shown in Fig.~1.30, with sides of length 2.
+\end{prob}
+
+\begin{sol}[1.33]
+    \begin{equation}
+        \nabla\cdot \mathbf{v} = y + 2z + 3x.
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            \quad\underset{S}{\oint}\cdot d\mathbf{a}
+            &= \int_0^2 \int_0^2 4z dx dz - \int_0^2 \int_0^2 0dxdz \\
+            &\quad  + \int_0^2 \int_0^26xdxdy - \int_0^2 \int_0^2 0 dxdy \\
+            &\quad + \int_0^2 \int_0^22y dxdy - \int_0^2\int_0^20dxdy \\
+        &=16 - 0 + 24 - 0 + 8 - 0 \\
+        &= 48.
+        \end{aligned}
+    \end{equation}
+
+    \begin{equation}
+        \underset{V}{\int}(\nabla\cdot\mathbf{v})d\tau = \int_0^2\int_0^2\int_0^2(3x + 2z + y) dxdydz = 48.
+    \end{equation}
+\end{sol}
+
+\subsection{The Fundamental Theorem for Curls}
+\begin{equation}
+    \underset{S}{\int} (\nabla\times\mathbf{v})\cdot d\mathbf{a} = \underset{S}{\oint}\mathbf{v}\cdot d\mathbf{l}.
+\end{equation}
+
