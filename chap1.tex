@@ -572,4 +572,30 @@ or
 \section{CURVILINEAR COORDINATES}
 
 \subsection{Spherical Coordinates}
+\begin{equation}
+    x = r \sin \theta\cos\phi,\quad\quad\quad y = r\sin\theta\sin\phi,\quad\quad\quad z = r\cos\theta.
+\end{equation}
+
+\begin{equation}
+    \mathbf{A} = A_r\baser + A_\theta\baset + A_\phi\basep;
+\end{equation}
+
+\begin{equation}
+    \left.
+    \begin{aligned}
+        \baser &= \sin\theta\cos\phi\basex + \sin\theta\sin\phi\basey + \cos\theta\basez, \\
+        \baset &= \cos\theta\cos\phi\basex + \cos\theta\sin\phi\basey - \sin\theta\basez,\\
+        \basep &= -\sin\phi\basex + \cos\phi\basey.
+    \end{aligned}
+    \right\}
+\end{equation}
+\begin{equation}
+    dl_r = dr,\quad\quad\quad dl_\theta = rd\theta,\quad\quad\quad dl_\phi=r\sin\theta d\phi.
+\end{equation}
+\begin{equation}
+    d\mathbf{l} = dr\baser + rd\theta\baset + r\sin\theta d\phi\basep.
+\end{equation}
+\begin{equation}
+    d\tau = dl_rdl_\theta dl_\phi = r^2\sin\theta dr d\theta d\phi.
+\end{equation}
 
